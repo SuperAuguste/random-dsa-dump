@@ -172,7 +172,6 @@ pub fn UnrolledSinglyLinkedList(comptime T: type, comptime max_items_per_node: u
             /// Packs this `node` and all next nodes as tightly as possible,
             /// `destroy`ing any now-empty `Node`s.
             pub fn compact(node: *Node, allocator: std.mem.Allocator) error{OutOfMemory}!void {
-
                 // If no open node exists, no compacting can be done.
                 var open_node = node.firstOpenNode() orelse return;
                 const last_node = node.lastNode();
